@@ -1,11 +1,11 @@
 public class LinkedListDeque<T> {
-    public class Node {
+    private class Node {
         /** Construct */
         private T item;
         private Node next;
         private Node prev;
 
-        public Node(Node p, T i, Node n) {
+        private Node(Node p, T i, Node n) {
             item = i;
             next = n;
             prev = p;
@@ -25,14 +25,14 @@ public class LinkedListDeque<T> {
     }
 
     /** Construct with first variable*/
-    public LinkedListDeque(T x) {
-        sentinel = new Node(null, null, null);
-        sentinel.next = sentinel;
-        sentinel.prev = sentinel;
-        sentinel.next = new Node(sentinel, x, sentinel);
-        sentinel.prev = sentinel.next;
-        size = 1;
-    }
+//    public LinkedListDeque(T x) {
+//        sentinel = new Node(null, null, null);
+//        sentinel.next = sentinel;
+//        sentinel.prev = sentinel;
+//        sentinel.next = new Node(sentinel, x, sentinel);
+//        sentinel.prev = sentinel.next;
+//        size = 1;
+//    }
 
     public void addFirst(T x) {
         sentinel.next = new Node(sentinel, x, sentinel.next);
@@ -108,3 +108,4 @@ public class LinkedListDeque<T> {
         return getRecursive(index - 1);
     }
 }
+
