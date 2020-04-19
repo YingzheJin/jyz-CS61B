@@ -5,7 +5,7 @@ public class LinkedListDeque<T> {
         private Node next;
         private Node prev;
 
-        private Node(Node p, T i, Node n) {
+        Node(Node p, T i, Node n) {
             item = i;
             next = n;
             prev = p;
@@ -66,12 +66,13 @@ public class LinkedListDeque<T> {
     public T removeFirst() {
         if (isEmpty()) {
             return null;
+        } else {
+            T current = sentinel.next.item;
+            sentinel.next = sentinel.next.next;
+            sentinel.next.prev = sentinel;
+            size -= 1;
+            return current;
         }
-        T re = sentinel.next.item;
-        sentinel.next = sentinel.next.next;
-        sentinel.next.prev = sentinel;
-        size -= 1;
-        return re;
     }
 
     public T removeLast() {
