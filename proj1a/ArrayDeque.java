@@ -29,6 +29,8 @@ public class ArrayDeque<T> {
             a[i] = items[j];
         }
         items = a;
+        nextFirst = capacity - 1;
+        nextLast = size;
     }
     public void addFirst(T x) {
         if (size == items.length) {
